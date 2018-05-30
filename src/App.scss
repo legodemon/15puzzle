@@ -1,3 +1,39 @@
-body {
-  background-color: red;
+html, body {
+  height: 100%;
+
+    .App {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      height: 100%;
+
+      font-family: Muli, Futura, Helvetica, Arial, sans-serif;
+
+      background-color: rgb(246, 246, 246);
+
+      .table {
+        border-radius: 16px;
+        margin-right: 30px;
+        box-shadow: 0 6px 15px rgba(36, 37, 38, 0.08);
+
+        background-color: white;
+        .chip {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+
+          width: 50px;
+          height: 50px;
+
+          border-radius: 50px;
+
+          background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+
+          cursor: pointer;
+        }
+      }
+    }
 }
