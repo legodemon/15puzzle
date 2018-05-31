@@ -1,39 +1,53 @@
 html, body {
   height: 100%;
 
-    .App {
+  .App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    font-family: Muli, Futura, Helvetica, Arial, sans-serif;
+
+    background-color: rgb(246, 246, 246);
+
+    .control {
       display: flex;
-      flex-direction: column;
+
+      flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
 
-      height: 100%;
+      width: 218px;
 
-      font-family: Muli, Futura, Helvetica, Arial, sans-serif;
+      cursor: pointer;
 
-      background-color: rgb(246, 246, 246);
+      margin-bottom: 5px;
+    }
 
-      .table {
-        border-radius: 16px;
-        margin-right: 30px;
-        box-shadow: 0 6px 15px rgba(36, 37, 38, 0.08);
+    .table {
+      border-radius: 16px;
+      box-shadow: 0 6px 15px rgba(36, 37, 38, 0.08);
 
-        background-color: white;
-        .chip {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
+      background-color: white;
 
-          width: 50px;
-          height: 50px;
+      .chip {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
 
-          border-radius: 50px;
+        width: 50px;
+        height: 50px;
 
-          background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+        border-radius: 50px;
 
-          cursor: pointer;
-        }
+        background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+
+        cursor: pointer;
       }
     }
+  }
 }
