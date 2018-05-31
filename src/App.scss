@@ -13,6 +13,8 @@ html, body {
 
     background-color: rgb(246, 246, 246);
 
+    user-select: none;
+
     .control {
       display: flex;
 
@@ -25,6 +27,10 @@ html, body {
       cursor: pointer;
 
       margin-bottom: 5px;
+
+      .disabled {
+        color: gray;
+      }
     }
 
     .table {

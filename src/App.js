@@ -1,46 +1,42 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import * as classnames from 'classnames';
+
 
 import * as actions from './actions'
 import './App.scss';
 
 class App extends Component {
   render() {
-      const {fields} = this.props,
-          {move, shuffle, backward} = this.props.actions;
+      const {fields, step, actions} = this.props,
+          {move, shuffle, backward} = actions;
 
       return (
           <div className="App">
               <div className={'control'}>
+                <div className={classnames({'disabled': !step})} onClick={() => backward()}>BACKWARD</div>
                 <div onClick={() => shuffle()}>SHUFFLE</div>
-                <div onClick={() => backward()}>BACKWARD</div>
               </div>
               <table className={'table'}>
-                    <tbody>
-                    {
-                        fields.map(row => (
-                            <tr>
-                            {
-                              row.map(item => item
-                                  ? <td><div onClick={() => move(item)} className={'chip'}>{item}</div></td>
-                                  : <td/>
-                              )
-                            }
-                            </tr>
-                        ))
-                    }
-                    </tbody>
+                <tbody>{
+                    fields.map( (row, index) => (
+                        <tr key={`row${index}`}>{
+                          row.map( (item, index) => item
+                              ? <td key={`cell${index}`}>
+                                  <div onClick={() => move(item)} className={'chip'}>
+                                      {item}
+                                  </div>
+                                </td>
+                              : <td/>
+                          )
+                        }</tr>
+                    ))
+                }</tbody>
               </table>
           </div>
       );
   }
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(actions, dispatch)
-    }
-}
-
-export default connect(state => state, mapDispatchToProps)(App)
+export default connect(state => state, dispatch => ({actions: bindActionCreators(actions, dispatch)}))(App)
