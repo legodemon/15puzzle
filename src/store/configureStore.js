@@ -1,14 +1,15 @@
 import {createStore, applyMiddleware} from 'redux'
 import rootReducer from '../reducers'
+import {LOCALSTORAGE_PREFIX, MOVE, SHUFFLE} from '../const/const';
 
 const storage = store => next => action => {
     const state = store.getState();
 
     switch(action.type) {
-        case 'MOVE':
-            localStorage.setItem(`15puzzle_${state.step}`, JSON.stringify(state.fields));
+        case MOVE:
+            localStorage.setItem(`${LOCALSTORAGE_PREFIX}${state.step}`, JSON.stringify(state.fields));
             break;
-        case 'SHUFFLE':
+        case SHUFFLE:
             localStorage.clear();
             break;
     }

@@ -14,10 +14,6 @@ class App extends Component {
 
       return (
           <div className="App">
-              <div className={'control'}>
-                <div className={classnames({'disabled': !step})} onClick={() => backward()}>BACKWARD</div>
-                <div onClick={() => shuffle()}>SHUFFLE</div>
-              </div>
               <table className={'table'}>
                 <tbody>{
                     fields.map( (row, index) => (
@@ -28,12 +24,16 @@ class App extends Component {
                                       {item}
                                   </div>
                                 </td>
-                              : <td/>
+                              : <td key={`cell${index}`}/>
                           )
                         }</tr>
                     ))
                 }</tbody>
               </table>
+              <div className={'control'}>
+                  <div className={classnames({'disabled': !step})} onClick={() => backward()}>BACKWARD</div>
+                  <div onClick={() => shuffle()}>SHUFFLE</div>
+              </div>
           </div>
       );
   }

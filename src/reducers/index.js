@@ -1,3 +1,5 @@
+import {BACKWARD, LOCALSTORAGE_PREFIX, MOVE, SHUFFLE} from "../const/const";
+
 const initialState = {
     step: 0,
     fields: [
@@ -76,15 +78,15 @@ const move = (getPosition, state, item) => {
 
 export default function state(state = initialState, action) {
     switch (action.type) {
-        case 'MOVE':
+        case MOVE:
             return { ...state, step: ++state.step, fields: move(getPosition, state.fields, action.payload)};
-        case 'SHUFFLE':
+        case SHUFFLE:
             return { ...state, step: 0, fields: shuffle(getUnique, random)};
-        case 'BACKWARD':
+        case BACKWARD:
             let step = state.step, prevStep = step - 1;
             if(step){
-                localStorage.removeItem(`15puzzle_${step}`);
-                return { ...state, step: prevStep, fields: JSON.parse(localStorage.getItem(`15puzzle_${prevStep}`))};
+                localStorage.removeItem(`${LOCALSTORAGE_PREFIX}${step}`);
+                return { ...state, step: prevStep, fields: JSON.parse(localStorage.getItem(`${LOCALSTORAGE_PREFIX}${prevStep}`))};
             }
             return state;
 
