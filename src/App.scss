@@ -1,58 +1,63 @@
 html, body {
   height: 100%;
 
-  .App {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  #container {
 
     height: 100%;
 
-    font-family: Muli, Futura, Helvetica, Arial, sans-serif;
-
-    background-color: rgb(246, 246, 246);
-
-    user-select: none;
-
-    .control {
+    .App {
       display: flex;
-
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-around;
+      justify-content: center;
 
-      width: 218px;
+      height: 100%;
 
-      cursor: pointer;
+      font-family: Muli, Futura, Helvetica, Arial, sans-serif;
 
-      margin-top: 5px;
+      background-color: rgb(246, 246, 246);
 
-      .disabled {
-        color: gray;
-      }
-    }
+      user-select: none;
 
-    .table {
-      border-radius: 16px;
-      box-shadow: 0 6px 15px rgba(36, 37, 38, 0.08);
-
-      background-color: white;
-
-      .chip {
+      .control {
         display: flex;
+
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
 
-        width: 50px;
-        height: 50px;
-
-        border-radius: 50px;
-
-        background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+        width: 218px;
 
         cursor: pointer;
+
+        margin-top: 5px;
+
+        .disabled {
+          color: gray;
+        }
+      }
+
+      .table {
+        border-radius: 16px;
+        box-shadow: 0 6px 15px rgba(36, 37, 38, 0.08);
+
+        background-color: white;
+
+        .chip {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+
+          width: 50px;
+          height: 50px;
+
+          border-radius: 50px;
+
+          background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+
+          cursor: pointer;
+        }
       }
     }
   }

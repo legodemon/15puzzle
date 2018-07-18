@@ -1,16 +1,29 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import classnames from 'classnames'
-
 
 import * as actions from './actions'
 import './App.scss'
 
 class App extends Component {
+  static propTypes = {
+    actions: PropTypes.shape({
+      move: PropTypes.func.isRequired,
+      shuffle: PropTypes.func.isRequired,
+      backward: PropTypes.func.isRequired,
+    }),
+    store: PropTypes.shape({
+      step: PropTypes.number.isRequired,
+      fields: PropTypes.array.isRequired
+    })
+  }
+
   render() {
-    const {fields, step, actions} = this.props,
-      {move, shuffle, backward} = actions
+    const {store, actions} = this.props
+    const {move, shuffle, backward} = actions
+    const {fields, step} = store
 
     return (
       <div className="App">
@@ -39,4 +52,4 @@ class App extends Component {
   }
 }
 
-export default connect(state => state, dispatch => ({actions: bindActionCreators(actions, dispatch)}))(App)
+export default connect(state => ({store: state}), dispatch => ({actions: bindActionCreators(actions, dispatch)}))(App)

@@ -5,6 +5,6 @@ import {Provider} from 'react-redux'
 import App from './App'
 import configureStore from './store/configureStore'
 
-const store = configureStore()
+const containerId = 'container'
 
-ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById('root'))
+ReactDOM.render(<Provider store={configureStore()}><App/></Provider>, document.getElementById(containerId))
